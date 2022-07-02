@@ -1,81 +1,104 @@
-@import url('//fonts.googleapis.com/css?family=Pacifico&text=Pure');
-@import url('//fonts.googleapis.com/css?family=Roboto:700&text=css');
-@import url('//fonts.googleapis.com/css?family=Kaushan+Script&text=!');
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
-body { 
-  min-height: 450px;
-  height: 100vh;
+body {
+  padding: 0;
   margin: 0;
-  background: radial-gradient(circle, darken(dodgerblue, 10%), #1f4f96, #1b2949, #000);
 }
 
-.stage {
-  height: 300px;
-  width: 500px;
-  margin: auto;
+#notfound {
+  position: relative;
+  height: 100vh;
+  background: #030005;
+}
+
+#notfound .notfound {
   position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  perspective: 9999px;
-  transform-style: preserve-3d;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
-.layer {
+.notfound {
+  max-width: 767px;
   width: 100%;
-  height: 100%;
-  position: absolute;
-  transform-style: preserve-3d;
-  animation: ಠ_ಠ 5s infinite alternate ease-in-out -7.5s;
-  animation-fill-mode: forwards;
-  transform: rotateY(40deg) rotateX(33deg) translateZ(0);
-}
-
-.layer:after {
-  font: 150px/0.65 'Pacifico', 'Kaushan Script', Futura, 'Roboto', 'Trebuchet MS', Helvetica, sans-serif;
-  content: '404  :( \A   Page not\A Found';
-  white-space: pre;
+  line-height: 1.4;
   text-align: center;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 50px; 
-  color: darken(#fff, 4%);
-  letter-spacing: -2px;
-  text-shadow: 4px 0 10px hsla(0, 0%, 0%, .13);
 }
 
-$i: 1;
-$NUM_LAYERS: 20;
-@for $i from 1 through $NUM_LAYERS {
-  .layer:nth-child(#{$i}):after{
-    transform: translateZ(($i - 1) * -1.5px);
+.notfound .notfound-404 {
+  position: relative;
+  height: 180px;
+  margin-bottom: 20px;
+  z-index: -1;
+}
+
+.notfound .notfound-404 h1 {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50% , -50%);
+      -ms-transform: translate(-50% , -50%);
+          transform: translate(-50% , -50%);
+  font-size: 224px;
+  font-weight: 900;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: -12px;
+  color: #030005;
+  text-transform: uppercase;
+  text-shadow: -1px -1px 0px #8400ff, 1px 1px 0px #ff005a;
+  letter-spacing: -20px;
+}
+
+
+.notfound .notfound-404 h2 {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 110px;
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0px 2px 0px #8400ff;
+  letter-spacing: 13px;
+  margin: 0;
+}
+
+.notfound a {
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
+  text-transform: uppercase;
+  color: #ff005a;
+  text-decoration: none;
+  border: 2px solid;
+  background: transparent;
+  padding: 10px 40px;
+  font-size: 14px;
+  font-weight: 700;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.notfound a:hover {
+  color: #8400ff;
+}
+
+@media only screen and (max-width: 767px) {
+    .notfound .notfound-404 h2 {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+  .notfound .notfound-404 h1 {
+      font-size: 182px;
   }
 }
-
-.layer:nth-child(n+#{round($NUM_LAYERS/2)}):after {
-  -webkit-text-stroke: 3px hsla(0, 0%, 0%, .25);
-}
-
-.layer:nth-child(n+#{round($NUM_LAYERS/2 + 1)}):after {
-  -webkit-text-stroke: 15px dodgerblue;
-  text-shadow: 6px 0 6px darken(dodgerblue,35%),
-               5px 5px 5px darken(dodgerblue,40%),
-               0 6px 6px darken(dodgerblue,35%);
-}
-
-.layer:nth-child(n+#{round($NUM_LAYERS/2 + 2)}):after {
-  -webkit-text-stroke: 15px darken(dodgerblue, 10%);
-}
-
-.layer:last-child:after {
-  -webkit-text-stroke: 17px hsla(0, 0%, 0%, .1);
-}
-
-.layer:first-child:after{
-  color: #fff;
-  text-shadow: none;
-}
-
-@keyframes ಠ_ಠ {
-  100% { transform: rotateY(-40deg) rotateX(-43deg); }
-}
-
