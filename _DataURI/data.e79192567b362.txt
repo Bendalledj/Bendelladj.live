@@ -1,1 +1,0 @@
-chrome-extension://hmlcjjclebjnfohgmgikjfnbmfkigocc/scripts/anti-clickjacking.js
